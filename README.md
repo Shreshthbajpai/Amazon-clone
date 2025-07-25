@@ -6,9 +6,9 @@ A responsive front-end clone of the Amazon India website built using **pure HTML
 
 ## 📸 Screenshots
 
-### 🏠 Homepage
+### 🏠 Banner Section
 
-![Homepage](./images/homepage.png)
+<img src="assets./Screenshot 2025-07-26 000540.png" width=600>
 
 ---
 
