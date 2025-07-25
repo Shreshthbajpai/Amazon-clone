@@ -12,15 +12,22 @@ A responsive front-end clone of the Amazon India website built using **pure HTML
 
 ---
 
-### 🧾 Product Grid Section
+### 🧾 Today's Deals
 
-![Product Grid](./images/product-grid.png)
+<img src="assets./Screenshot 2025-07-26 000607.png" width=600>
+
 
 ---
 
-### 📱 Responsive View (Mobile)
+### 📱 Recommended for you
 
-![Mobile View](./images/mobile-view.png)
+<img src="assets./Screenshot 2025-07-26 000631.png" width=600>
+
+---
+
+### 📱 Footer Section
+
+<img src="assets./Screenshot 2025-07-26 000647.png" width=600>
 
 ---
 
