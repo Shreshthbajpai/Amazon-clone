@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone</title>
+    <!-- Tailwind CSS CDN - IMPORTANT: This must be here for direct browser use -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to external CSS file - ensure this comes AFTER Tailwind CDN if you're overriding Tailwind styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="bg-gray-900 text-white py-2 px-4 flex items-center justify-between flex-wrap">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2 mr-4 mb-2 md:mb-0">
+            <img src="https://placehold.co/100x30/000/fff?text=AMAZON" alt="Amazon Logo" class="h-8 rounded">
+            <span class="text-xs text-gray-400 hidden sm:block">.in</span>
+        </div>
+
+        <!-- Delivery Location -->
+        <div class="flex items-center text-sm mr-4 mb-2 md:mb-0">
+            <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 20s-8-10-8-14a8 8 0 0116 0c0 4-8 14-8 14zm0-10a3 3 0 100-6 3 3 0 000 6z"></path>
+            </svg>
+            <div>
+                <span class="text-gray-400 block">Deliver to</span>
+                <span class="font-bold block">India</span>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="flex-grow flex items-center bg-white rounded-md overflow-hidden max-w-xl mx-auto mb-2 md:mb-0 order-3 md:order-none w-full md:w-auto">
+            <select class="p-2 bg-gray-200 text-gray-700 text-sm rounded-l-md border-r border-gray-300 focus:outline-none hidden sm:block">
+                <option>All</option>
+                <option>Electronics</option>
+                <option>Books</option>
+                <option>Fashion</option>
+            </select>
+            <input type="text" placeholder="Search Amazon.in" class="p-2 flex-grow text-gray-900 focus:outline-none">
+            <button class="bg-yellow-500 p-2 rounded-r-md">
+                <svg class="w-5 h-5 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Right-side Nav Items -->
+        <div class="flex items-center space-x-4 text-sm ml-4 flex-wrap justify-end">
+            <!-- Language -->
+            <div class="relative group hidden md:block">
+                <button class="flex items-center p-2 rounded hover:border hover:border-white">
+                    <img src="https://placehold.co/20x15/000/fff?text=EN" alt="Flag" class="mr-1 rounded">
+                    EN
+                    <svg class="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+                <!-- Dropdown for Language (CSS only) -->
+                <div class="absolute hidden group-hover:block bg-white text-gray-900 rounded-md shadow-lg py-2 w-24 z-10">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Hindi</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tamil</a>
+                </div>
+            </div>
+
+            <!-- Account & Lists -->
+            <div class="relative group">
+                <button class="p-2 rounded hover:border hover:border-white">
+                    <span class="block text-xs text-gray-400">Hello, Sign in</span>
+                    <span class="font-bold flex items-center">Account & Lists
+                        <svg class="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </span>
+                </button>
+                <!-- Dropdown for Account (CSS only) -->
+                <div class="absolute hidden group-hover:block bg-white text-gray-900 rounded-md shadow-lg py-2 w-48 right-0 z-10">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Your Account</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Your Orders</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Your Wish List</a>
+                </div>
+            </div>
+
+            <!-- Orders -->
+            <a href="#" class="p-2 rounded hover:border hover:border-white hidden md:block">
+                <span class="block text-xs text-gray-400">Returns</span>
+                <span class="font-bold">& Orders</span>
+            </a>
+
+            <!-- Cart -->
+            <a href="#" class="flex items-center p-2 rounded hover:border hover:border-white">
+                <svg class="w-8 h-8 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M3 1a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V2a1 1 0 00-1-1H3zm0 2h12v10H3V3zm0 0"></path>
+                    <path d="M10 4a1 1 0 00-1 1v4a1 1 0 102 0V5a1 1 0 00-1-1zM7 5a1 1 0 011-1h4a1 1 0 110 2H8a1 1 0 01-1-1z"></path>
+                </svg>
+                <span class="font-bold text-yellow-500 text-lg">0</span>
+                <span class="hidden sm:block ml-1">Cart</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 text-white py-2 px-4 flex items-center space-x-4 text-sm overflow-x-auto whitespace-nowrap">
+        <a href="#" class="p-1 rounded hover:border hover:border-white flex items-center">
+            <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            All
+        </a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Fresh</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Amazon miniTV</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Sell</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Best Sellers</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Mobiles</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Today's Deals</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Electronics</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Prime</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">New Releases</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Fashion</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Home & Kitchen</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Computers</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Books</a>
+        <a href="#" class="p-1 rounded hover:border hover:border-white">Gift Cards</a>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto p-4">
+        <!-- Hero Section / Carousel Placeholder -->
+        <section class="hero-section bg-white rounded-lg shadow-md mb-8 overflow-hidden relative">
+            <img src="https://placehold.co/1200x400/f0c14b/000?text=Discover+Amazing+Deals" alt="Hero Banner" class="w-full h-auto object-cover rounded-lg">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-900 to-transparent text-white text-center">
+                <h2 class="text-3xl font-bold mb-2">Welcome to Amazon Clone!</h2>
+                <p class="text-lg">Your one-stop shop for everything you need.</p>
+            </div>
+        </section>
+
+        <!-- Today's Deals Section -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4 px-2">Today's Deals</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <!-- Deal Card 1 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+                    <img src="https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?cs=srgb&dl=pexels-knownasovan-62689.jpg&fm=jpg" alt="Electronics Deal" class="w-36 h-36 object-contain mb-3 rounded">
+                    <p class="text-red-600 font-bold text-sm mb-1">Up to 50% off</p>
+                    <h3 class="font-semibold text-md mb-2 line-clamp-2">Electronics Accessories</h3>
+                    <p class="text-gray-700 text-sm">Chargers, cables & more</p>
+                    <a href="#" class="text-blue-600 hover:underline text-sm mt-2">Shop now</a>
+                </div>
+                <!-- Deal Card 2 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5KWfz3qW7ZOVX3mUmTX1MCcyJaozKdynDYA&s" alt="Book Deal" class="w-36 h-36 object-contain mb-3 rounded">
+                    <p class="text-red-600 font-bold text-sm mb-1">Deals on Books</p>
+                    <h3 class="font-semibold text-md mb-2 line-clamp-2">Bestselling Novels</h3>
+                    <p class="text-gray-700 text-sm">Fiction, Non-fiction & more</p>
+                    <a href="#" class="text-blue-600 hover:underline text-sm mt-2">Shop now</a>
+                </div>
+                <!-- Deal Card 3 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+                    <img src="https://cdn.firstcry.com/education/2023/01/13101355/Names-Of-Household-Appliances-In-English.jpg" alt="Appliance Deal" class="w-36 h-36 object-contain mb-3 rounded">
+                    <p class="text-red-600 font-bold text-sm mb-1">Great offers</p>
+                    <h3 class="font-semibold text-md mb-2 line-clamp-2">Home Appliances</h3>
+                    <p class="text-gray-700 text-sm">Kitchen & Living</p>
+                    <a href="#" class="text-blue-600 hover:underline text-sm mt-2">Shop now</a>
+                </div>
+                <!-- Deal Card 4 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_5Jk3KXsJb-B4E-dKBJWVSkEHnM9gjoM6dg&s" alt="Fashion Deal" class="w-36 h-36 object-contain mb-3 rounded">
+                    <p class="text-red-600 font-bold text-sm mb-1">Limited Time</p>
+                    <h3 class="font-semibold text-md mb-2 line-clamp-2">Fashion & Apparel</h3>
+                    <p class="text-gray-700 text-sm">Trendy clothes for all</p>
+                    <a href="#" class="text-blue-600 hover:underline text-sm mt-2">Shop now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Grid Section -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4 px-2">Recommended for you</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+                    <img src="https://m.media-amazon.com/images/I/61GRy-zyB-L.jpg" alt="Smartwatch" class="w-48 h-48 object-contain mb-4 rounded">
+                    <h3 class="font-semibold text-lg mb-2">Latest Smartwatch X1</h3>
+                    <p class="text-gray-700 text-sm mb-2 line-clamp-2">Track your fitness and stay connected with this stylish smartwatch.</p>
+                    <div class="flex items-center mb-2">
+                        <span class="text-yellow-500 mr-1">★★★★★</span>
+                        <span class="text-gray-600 text-sm">(1,234)</span>
+                    </div>
+                    <p class="text-xl font-bold text-gray-900 mb-4">₹12,999</p>
+                    <button class="amazon-gradient-button text-gray-900 px-4 py-2 rounded-md w-full">Add to Cart</button>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+                    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcShL85lUpfVcDt-dTDzO55CIWUPH8FTR40sPxn7QMk8uFSSs0Uoer-bC6YPn_d2YJ84AdfR70gaqNHH-apdJz380mD2TRb8TDcO2_VCEkl8" alt="Laptop" class="w-48 h-48 object-contain mb-4 rounded">
+                    <h3 class="font-semibold text-lg mb-2">Ultra-Thin Laptop Pro</h3>
+                    <p class="text-gray-700 text-sm mb-2 line-clamp-2">Powerful performance in a sleek and portable design for professionals.</p>
+                    <div class="flex items-center mb-2">
+                        <span class="text-yellow-500 mr-1">★★★★☆</span>
+                        <span class="text-gray-600 text-sm">(876)</span>
+                    </div>
+                    <p class="text-xl font-bold text-gray-900 mb-4">₹54,500</p>
+                    <button class="amazon-gradient-button text-gray-900 px-4 py-2 rounded-md w-full">Add to Cart</button>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+                    <img src="https://m.media-amazon.com/images/I/61i7ivBDe3L.jpg" alt="Headphones" class="w-48 h-48 object-contain mb-4 rounded">
+                    <h3 class="font-semibold text-lg mb-2">Noise-Cancelling Headphones</h3>
+                    <p class="text-gray-700 text-sm mb-2 line-clamp-2">Immersive audio experience with superior noise cancellation.</p>
+                    <div class="flex items-center mb-2">
+                        <span class="text-yellow-500 mr-1">★★★★★</span>
+                        <span class="text-gray-600 text-sm">(2,100)</span>
+                    </div>
+                    <p class="text-xl font-bold text-gray-900 mb-4">₹8,999</p>
+                    <button class="amazon-gradient-button text-gray-900 px-4 py-2 rounded-md w-full">Add to Cart</button>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSbZNI8NuQwkTvbl6Gr8WTr5G8w38TcaqC6Q&s" alt="Coffee Maker" class="w-48 h-48 object-contain mb-4 rounded">
+                    <h3 class="font-semibold text-lg mb-2">Smart Coffee Maker</h3>
+                    <p class="text-gray-700 text-sm mb-2 line-clamp-2">Brew your perfect cup with smart features and custom settings.</p>
+                    <div class="flex items-center mb-2">
+                        <span class="text-yellow-500 mr-1">★★★★☆</span>
+                        <span class="text-gray-600 text-sm">(1,500)</span>
+                    </div>
+                    <p class="text-xl font-bold text-gray-900 mb-4">₹2,999</p>
+                    <button class="amazon-gradient-button text-gray-900 px-4 py-2 rounded-md w-full">Add to Cart</button>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmrpEygMHmwHktG1itApmY3u87_i4h1VdXrQ&s" alt="Fitness Tracker" class="w-48 h-48 object-contain mb-4 rounded">
+                    <h3 class="font-semibold text-lg mb-2">Advanced Fitness Tracker</h3>
+                    <p class="text-gray-700 text-sm mb-2 line-clamp-2">Monitor your health and activity with precision.</p>
+                    <div class="flex items-center mb-2">
+                        <span class="text-yellow-500 mr-1">★★★★★</span>
+                        <span class="text-gray-600 text-sm">(987)</span>
+                    </div>
+                    <p class="text-xl font-bold text-gray-900 mb-4">₹3,500</p>
+                    <button class="amazon-gradient-button text-gray-900 px-4 py-2 rounded-md w-full">Add to Cart</button>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+                    <img src="https://cdn.pixelbin.io/v2/black-bread-289bfa/HrdP6X/original/hamleys-product/494424038/665/494424038-1_7040.webp" alt="Gaming Console" class="w-48 h-48 object-contain mb-4 rounded">
+                    <h3 class="font-semibold text-lg mb-2">Next-Gen Gaming Console</h3>
+                    <p class="text-gray-700 text-sm mb-2 line-clamp-2">Experience immersive gaming with stunning graphics.</p>
+                    <div class="flex items-center mb-2">
+                        <span class="text-yellow-500 mr-1">★★★★★</span>
+                        <span class="text-gray-600 text-sm">(3,456)</span>
+                    </div>
+                    <p class="text-xl font-bold text-gray-900 mb-4">₹39,999</p>
+                    <button class="amazon-gradient-button text-gray-900 px-4 py-2 rounded-md w-full">Add to Cart</button>
+                </div>
+
+                <!-- Product Card 7 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSyT2JcqIH-HvQQ5XJixnRjd0xQNuqhCYTUw&s" alt="Book" class="w-48 h-48 object-contain mb-4 rounded">
+                    <h3 class="font-semibold text-lg mb-2">Bestselling Novel: The Great Adventure</h3>
+                    <p class="text-gray-700 text-sm mb-2 line-clamp-2">A captivating story that will keep you on the edge of your seat.</p>
+                    <div class="flex items-center mb-2">
+                        <span class="text-yellow-500 mr-1">★★★★★</span>
+                        <span class="text-gray-600 text-sm">(5,123)</span>
+                    </div>
+                    <p class="text-xl font-bold text-gray-900 mb-4">₹499</p>
+                    <button class="amazon-gradient-button text-gray-900 px-4 py-2 rounded-md w-full">Add to Cart</button>
+                </div>
+
+                <!-- Product Card 8 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+                    <img src="https://avstore.in/cdn/shop/files/2.AVStore-JBL-PartyBox-110-160W-Portable-Wireless-Speaker-Front-Left-Angled-View.jpg?v=1682411625&width=2000" alt="Speaker" class="w-48 h-48 object-contain mb-4 rounded">
+                    <h3 class="font-semibold text-lg mb-2">Portable Bluetooth Speaker</h3>
+                    <p class="text-gray-700 text-sm mb-2 line-clamp-2">Enjoy high-quality audio on the go with this compact speaker.</p>
+                    <div class="flex items-center mb-2">
+                        <span class="text-yellow-500 mr-1">★★★★☆</span>
+                        <span class="text-gray-600 text-sm">(1,800)</span>
+                    </div>
+                    <p class="text-xl font-bold text-gray-900 mb-4">₹1,750</p>
+                    <button class="amazon-gradient-button text-gray-900 px-4 py-2 rounded-md w-full">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sign In Prompt Section -->
+        <section class="bg-white rounded-lg shadow-md p-6 text-center mb-8">
+            <h3 class="text-lg font-bold mb-2">Sign in for your best experience</h3>
+            <button class="amazon-gradient-button text-gray-900 px-8 py-2 rounded-md mb-4">Sign in securely</button>
+            <p class="text-sm text-gray-700">New customer? <a href="#" class="text-blue-600 hover:underline">Start here.</a></p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white mt-8">
+        <!-- Back to Top -->
+        <div class="bg-gray-800 py-3 text-center text-sm hover:bg-gray-700 cursor-pointer">
+            <a href="#" class="block">Back to top</a>
+        </div>
+
+        <!-- Footer Links Grid -->
+        <div class="container mx-auto py-8 px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
+            <div>
+                <h4 class="font-bold mb-2">Get to Know Us</h4>
+                <ul>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">About Us</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Careers</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Press Releases</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Amazon Science</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-2">Connect with Us</h4>
+                <ul>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Facebook</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Twitter</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Instagram</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-2">Make Money with Us</h4>
+                <ul>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Sell on Amazon</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Sell under Amazon Accelerator</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Protect and Build Your Brand</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Amazon Global Selling</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Become an Affiliate</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Fulfilment by Amazon</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Advertise Your Products</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Amazon Pay on Merchants</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-2">Let Us Help You</h4>
+                <ul>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">COVID-19 and Amazon</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Your Account</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Returns Centre</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">100% Purchase Protection</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Amazon App Download</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Amazon Assistant Download</a></li>
+                    <li class="mb-1"><a href="#" class="amazon-link hover:underline">Help</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Section -->
+        <div class="border-t border-gray-700 py-6 text-center text-xs text-gray-400">
+            <div class="flex items-center justify-center mb-2">
+                <img src="https://placehold.co/80x25/000/fff?text=AMAZON" alt="Amazon Logo" class="h-6 mr-2 rounded">
+                <select class="bg-gray-800 text-white border border-gray-600 rounded p-1 text-xs focus:outline-none">
+                    <option>English</option>
+                    <option>Hindi</option>
+                </select>
+            </div>
+            <div class="space-x-4 mb-2">
+                <a href="#" class="amazon-link hover:underline">Conditions of Use & Sale</a>
+                <a href="#" class="amazon-link hover:underline">Privacy Notice</a>
+                <a href="#" class="amazon-link hover:underline">Interest-Based Ads</a>
+            </div>
+            <p>&copy; 1996-2025, Amazon.com, Inc. or its affiliates</p>
+        </div>
+    </footer>
+
+</body>
+</html>

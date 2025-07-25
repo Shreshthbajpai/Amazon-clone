@@ -1,0 +1,128 @@
+/* Tailwind CSS CDN - IMPORTANT: This must be at the very top of your CSS file */
+@import url("https://cdn.tailwindcss.com");
+
+/* Global Box Sizing for consistent layout */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: #eaeded; /* Amazon's light grey background */
+    line-height: 1.5; /* Improve readability */
+}
+
+/* Custom styles for specific elements */
+.amazon-gradient-button {
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    border: 1px solid #a2a2a2;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.4) inset;
+    transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover */
+    cursor: pointer; /* Indicate interactivity */
+}
+.amazon-gradient-button:hover {
+    background: linear-gradient(to bottom, #f5d78e, #eeb933);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Slightly more prominent shadow on hover */
+}
+.amazon-link:hover {
+    color: #e47911; /* Amazon's orange hover color */
+    text-decoration: underline; /* Add underline on hover for links */
+}
+
+/* Header specific enhancements */
+header {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for header */
+}
+
+/* Search bar specific styles */
+.flex-grow input[type="text"] {
+    border: none; /* Remove default input border */
+}
+.flex-grow button {
+    border: none; /* Remove default button border */
+}
+.flex-grow > select,
+.flex-grow > input,
+.flex-grow > button {
+    height: 40px; /* Consistent height for search bar elements */
+}
+
+/* Hero Section Specific Styles */
+.hero-section {
+    position: relative;
+    height: 400px; /* Fixed height for the hero section */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden; /* Ensure content doesn't spill out */
+    border-radius: 0.5rem; /* Apply rounded corners to the section */
+    margin-top: -80px; /* Pull hero section up to overlap header slightly, common Amazon design */
+    z-index: 5; /* Ensure it's above other content if needed */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* More prominent shadow for hero */
+}
+
+.hero-section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire area */
+    z-index: 0; /* Behind the text overlay */
+    border-radius: 0.5rem; /* Apply rounded corners to the image */
+}
+
+.hero-section > div { /* The text overlay */
+    position: relative; /* Position relative to allow z-index */
+    z-index: 1; /* Above the image */
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); /* Stronger gradient overlay for text readability */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align text to the bottom */
+}
+
+/* Main content area padding adjustment for hero overlap */
+main.container {
+    padding-top: 20px; /* Adjust padding to account for hero overlap */
+    position: relative; /* Establish positioning context */
+    z-index: 10; /* Ensure main content is above hero section */
+}
+
+/* Product Card and Deal Card common styling */
+.bg-white.rounded-lg.shadow-md {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effects */
+    border: 1px solid #ddd; /* Subtle border for definition */
+}
+.bg-white.rounded-lg.shadow-md:hover {
+    transform: translateY(-3px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* More pronounced shadow on hover */
+}
+
+/* Responsive adjustments for the hero section text */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 300px; /* Smaller height on mobile */
+        margin-top: -60px; /* Adjust overlap for mobile */
+    }
+    .hero-section h2 {
+        font-size: 1.8rem; /* Smaller font on mobile */
+    }
+    .hero-section p {
+        font-size: 0.9rem;
+    }
+    main.container {
+        padding-top: 10px; /* Less padding on mobile */
+    }
+}
+
+/* Footer specific styles */
+footer .container {
+    border-top: 1px solid #333; /* Darker border for footer sections */
+}
